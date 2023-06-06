@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float jumpVelocity;
     public float fallMultiplier = 2.5f;
+    public float playerMass = 1f;
 
     // Private variables
     private Rigidbody2D rb;
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Set moveVector according to "movement" 1D axis composite and current y velocity
         moveVector = new Vector2(movement.ReadValue<float>(), rb.velocity.y);
+        GetComponent<Rigidbody2D>().mass = playerMass;
     }
 
     void MovePlayer(Vector2 moveVector)
