@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4325744938501133575}
   - component: {fileID: 4325744938501133569}
   - component: {fileID: 4325744938501133572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table_unbroken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenPrefab: {fileID: 6461143482597250586, guid: 1d51233ed299bb84191ad2305a00b87a, type: 3}
-  force: 2
+  explodeForce: 0
   breakForce: 8
   fallen: 0
-  value: 2000
+  objectType: 0

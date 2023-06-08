@@ -19,7 +19,7 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void ReadyObjects()
     {
         foreach (Transform child in transform)
         {

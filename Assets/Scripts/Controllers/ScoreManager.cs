@@ -15,6 +15,7 @@ public class ScoreManager : MonoBehaviour, IBreakableObserver
     public float displayScore;
     [SerializeField] private List<BreakableSubject> subjects = new List<BreakableSubject>();
     //[SerializeField] private BreakableSubject subject;
+    public bool isBestScore = false;
 
     void Awake()
     {
@@ -26,10 +27,13 @@ public class ScoreManager : MonoBehaviour, IBreakableObserver
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(this);
     }
 
     public void ObjectsReady()
     {
+        subjects.Clear();
+        scoreField = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
         ObjectManager.Instance.objects.ForEach((item) => {
             subjects.Add(item.GetComponent<Breakable>());
         });
@@ -39,7 +43,7 @@ public class ScoreManager : MonoBehaviour, IBreakableObserver
         });
     }
 
-    private void OnDisable()
+    private void RemoveObservers()
     {
         subjects.ForEach((item) => {
             item.RemoveObserver(this);
@@ -54,6 +58,7 @@ public class ScoreManager : MonoBehaviour, IBreakableObserver
     public void ResetScore()
     {
         currentScore = 0;
+        isBestScore = false;
     }
 
     public void AddScore(int scoreToAdd)
@@ -65,17 +70,31 @@ public class ScoreManager : MonoBehaviour, IBreakableObserver
     private void UpdateScore(int score)
     {
         scoreField.text = "$" + score.ToString();
+        if (currentScore > highScore)
+        {
+            highScore = currentScore;
+            isBestScore = true;
+        }
     }
 
     public void OnNotify(ObjectValuesEnum objectType)
     {
-        if (objectType == ObjectValuesEnum.TABLE)
+        if (objectType == ObjectValuesEnum.HIGH_VALUE)
         {
-            AddScore(2000);
+            AddScore(1000);
         }
-        if (objectType == ObjectValuesEnum.POTION)
+        if (objectType == ObjectValuesEnum.MID_VALUE)
         {
-            AddScore(50);
+            AddScore(500);
         }
+        if (objectType == ObjectValuesEnum.LOW_VALUE)
+        {
+            AddScore(100);
+        }
+    }
+
+    public void EndGame()
+    {
+        RemoveObservers();
     }
 }

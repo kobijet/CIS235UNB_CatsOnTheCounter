@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenPrefab: {fileID: 1506342827818111318, guid: f4de2a86dcb5e0b4caf5a31d596f485f, type: 3}
-  force: 0.5
+  explodeForce: 0
   breakForce: 0
   fallen: 0
-  value: 50
+  objectType: 2

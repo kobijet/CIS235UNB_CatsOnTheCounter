@@ -6,7 +6,7 @@ using UnityEngine;
 public class Breakable : BreakableSubject
 {
     public GameObject brokenPrefab;
-    public float force;
+    public float explodeForce;
     public float breakForce;
     private Rigidbody2D rb;
     public bool fallen;
@@ -52,7 +52,7 @@ public class Breakable : BreakableSubject
             int xDir = Random.Range(-10, 10);
             int yDir = Random.Range(0, 10);
             Vector2 dir = new Vector2(xDir, yDir).normalized;
-            Vector2 push = dir * force;
+            Vector2 push = dir * explodeForce;
             piece.AddForce(push, ForceMode2D.Impulse);
         }
 

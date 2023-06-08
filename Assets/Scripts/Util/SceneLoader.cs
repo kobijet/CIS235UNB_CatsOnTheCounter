@@ -13,7 +13,6 @@ public static class SceneLoader
         MAIN_MENU,
         LOADING,
         GAMEPLAY,
-        GAME_OVER,
         SCORE_SCREEN
     }
 

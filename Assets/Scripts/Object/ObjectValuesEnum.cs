@@ -1,5 +1,6 @@
 public enum ObjectValuesEnum
 {
-    TABLE,
-    POTION
+    HIGH_VALUE,
+    MID_VALUE,
+    LOW_VALUE
 }

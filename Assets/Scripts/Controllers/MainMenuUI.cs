@@ -8,7 +8,6 @@ public class MainMenuUI : MonoBehaviour
     void Awake()
     {
         transform.Find("PlayButton").GetComponent<Button>().onClick.AddListener(OnClickPlayButton);
-        transform.Find("ScoreButton").GetComponent<Button>().onClick.AddListener(OnClickScoreButton);
         transform.Find("ExitButton").GetComponent<Button>().onClick.AddListener(OnClickExitButton);
     }
 
@@ -17,13 +16,8 @@ public class MainMenuUI : MonoBehaviour
         SceneLoader.LoadScene(SceneLoader.Scene.GAMEPLAY);
     }
 
-    void OnClickScoreButton()
-    {
-        Debug.Log("Switch to SCORE_SCREEN scene");
-    }
-
     void OnClickExitButton()
     {
-        Debug.Log("Exit game");
+        Application.Quit();
     }
 }

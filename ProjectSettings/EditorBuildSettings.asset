@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GAMEPLAY.unity
     guid: 9a996581f45e28d458241c80beea28f0
+  - enabled: 1
+    path: Assets/Scenes/SCORE_SCREEN.unity
+    guid: fb35efd8226ec7e4187536850fc9adf8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 236339aacd10ed04ea224a1c6a81e48e, type: 2}

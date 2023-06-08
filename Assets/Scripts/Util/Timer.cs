@@ -5,7 +5,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public bool timerRunning;
+    public bool timerRunning = false;
     public float timeRemaining = 100;
     public TMP_Text timerText;
 
@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour
         {
             timeRemaining = 0;
             timerRunning = false;
+            GameObject.Find("GameManager").GetComponent<GameManager>().EndGame();
         }
     }
 
